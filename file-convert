@@ -1,0 +1,16 @@
+    // Converts an arraybuffer into base64 so that it can be passed through javascript
+    
+    // THE "buffer" parameter is where we want to enter our fileBinaryData() 
+    // binding value into to convert that arraybuffer into a Uint8Array.
+    
+    function _arrayBufferToBase64(buffer) {
+        var binary = '';
+        var bytes = new Uint8Array(buffer);
+        var len = bytes.byteLength;
+        for (var i = 0; i < len; i++) {
+            binary += String.fromCharCode(bytes[i]);
+            //binary += String.fromCharCode(bytes.getUint8(i));
+        }
+        return window.btoa(binary);
+
+    }
